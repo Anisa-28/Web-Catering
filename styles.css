@@ -1,0 +1,2135 @@
+/* =========================================================
+   Dapoer Gutera — Stylesheet
+   Built from UI KIT | DAPOER GUTERA
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root{
+  /* Colors — sampled directly from UI Kit */
+  --black:#000000;
+  --green-900:#22462D;
+  --green-600:#3E8151;
+  --green-300:#A7D598;
+  --green-300-soft:#B9DDAE;
+  --red:#B9221F;
+  --gold:#C8A96B;
+  --cream:#EFE7DC;
+  --offwhite:#F9F8F4;
+  --white:#FFFFFF;
+  --ink:#1C1C1C;
+  --muted:#5B5B5B;
+  --border:#E3E0D8;
+
+  /* Type */
+  --font-display:'Playfair Display', serif;
+  --font-body:'Poppins', sans-serif;
+
+  /* Spacing scale (from UI Kit spacing system) */
+  --space-4xs:4px;
+  --space-xs:8px;
+  --space-sm:12px;
+  --space-md:20px;
+  --space-lg:32px;
+  --space-xl:48px;
+  --space-2xl:64px;
+  --space-3xl:96px;
+
+  /* Radius scale (from UI Kit corner radius) */
+  --radius-xs:4px;
+  --radius-sm:8px;
+  --radius-md:12px;
+  --radius-lg:16px;
+  --radius-xl:24px;
+  --radius-full:999px;
+
+  /* Shadows */
+  --shadow-card:0 4px 20px rgba(0,0,0,0.06);
+  --shadow-hover:0 8px 30px rgba(0,0,0,0.10);
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:var(--font-body);
+  color:var(--ink);
+  background:var(--white);
+  font-weight:400;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+ul{list-style:none;margin:0;padding:0;}
+button{font-family:inherit;cursor:pointer;}
+
+.container{
+  width:100%;
+  max-width:1280px;
+  margin:0 auto;
+  padding:0 40px;
+}
+
+h1,h2,h3{
+  font-family:var(--font-display);
+  font-weight:700;
+  color:var(--black);
+  margin:0;
+  line-height:1.15;
+}
+h1{font-size:56px;}
+h2{font-size:40px;}
+h3{font-size:28px;}
+p{margin:0;}
+
+.eyebrow{
+  font-family:var(--font-body);
+  font-size:15px;
+  color:var(--black-600);
+  font-weight:500;
+  letter-spacing:.03em;
+}
+
+.section{padding:var(--space-3xl) 0;}
+.section-tight{padding:var(--space-2xl) 0;}
+.section-title{
+  text-align:center;
+  margin-bottom:var(--space-sm);
+}
+.section-sub{
+  text-align:center;
+  color:var(--muted);
+  font-size:17px;
+  max-width:640px;
+  margin:0 auto var(--space-xl);
+}
+
+/* ===================== Buttons (UI Kit) ===================== */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-family:var(--font-body);
+  font-weight:600;
+  font-size:15px;
+  padding:14px 28px;
+  border-radius:var(--radius-full);
+  border:1.5px solid transparent;
+  transition:all .2s ease;
+  white-space:nowrap;
+}
+.btn-primary{background:var(--green-600);color:#fff;}
+.btn-primary:hover{background:var(--green-900);}
+.btn-secondary{background:var(--green-300);color:var(--green-900);}
+.btn-secondary:hover{background:var(--green-600);color:#fff;}
+.btn-outline{background:transparent;color:var(--green-600);border-color:var(--green-600);}
+.btn-outline:hover{background:var(--green-600);color:#fff;}
+.btn-text{background:transparent;color:var(--green-600);padding:8px 4px;border-radius:0;}
+.btn-sm{padding:10px 20px;font-size:14px;}
+.btn-block{width:100%;justify-content:center;}
+
+/* ===================== Navbar ===================== */
+.navbar{
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;
+  padding:22px 40px;
+  max-width:1280px;
+  margin:0 auto;
+  position:relative;
+  z-index:50;
+}
+.nav-logo img{
+  height:55px;
+  width:auto;
+  display:block;
+}
+.nav-logo .cap{display:block;font-size:11px;font-family:var(--font-body);color:var(--black);font-weight:500;letter-spacing:.2em;margin-top:-2px;}
+.nav-links{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:40px;
+  list-style:none;
+  justify-self:center;
+}
+.nav-links a{
+  font-size:16px;
+  color:var(--ink);
+  position:relative;
+  padding-bottom:4px;
+}
+.nav-links a.active{color:var(--green-900);font-weight:600;}
+.nav-links a.active::after{
+  content:"";
+  position:absolute;left:0;right:0;bottom:-4px;height:2px;background:var(--green-600);
+}
+.nav-contact{
+  justify-self:end;
+  font-size:16px;
+  font-weight:500;
+}
+.nav-toggle{display:none;background:none;border:none;font-size:26px;}
+
+@media (max-width: 992px){
+
+  .navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+
+  .nav-links,
+  .nav-contact{
+    display:none;
+  }
+
+  .nav-toggle{
+    display:block;
+    background:none;
+    border:none;
+    font-size:30px;
+    cursor:pointer;
+  }
+
+  .nav-links.active{
+    display:flex;
+    position:absolute;
+    top:100%;
+    left:0;
+    width:100%;
+    background:#fff;
+    flex-direction:column;
+    align-items:center;
+    gap:35px;
+    padding:40px 0;
+  }
+}
+/* ===================== Hero (Landing) ===================== */
+.hero{
+  position:relative;
+  overflow:hidden;
+  padding-bottom:60px;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:20px;
+  max-width:1280px;
+  margin:0 auto;
+  margin-top:-50px;
+  padding:0px 40px;
+  position:relative;
+  z-index:1;
+}
+.hero h1{font-size:60px;margin-bottom:14px;}
+.hero-sub{font-size:20px;color:var(--muted);margin-bottom:28px;max-width:440px;}
+.hero-visual{position:relative;display:flex;justify-content:center;margin-top:-60px;}
+.hero-visual img{width:100%;max-width:620px;}
+.marquee{
+  background:var(--green-300);
+  overflow:hidden;
+  padding:16px 0;
+  margin-top:40px;
+}
+.marquee-track{
+  display:flex;
+  gap:14px;
+  white-space:nowrap;
+  animation:scrollmq 28s linear infinite;
+  width:max-content;
+}
+.marquee-track span{font-weight:500;font-size:15px;color:var(--green-900);}
+@keyframes scrollmq{
+  from{transform:translateX(0);}
+  to{transform:translateX(-50%);}
+}
+
+/* ===================== About split ===================== */
+.about-split{
+  display:grid;
+  grid-template-columns:1.05fr 1fr;
+  gap:56px;
+  align-items:center;
+}
+.collage{
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:16px;
+    align-items:stretch;
+}
+
+.collage-right{
+    display:grid;
+    grid-template-rows:1fr 1fr;
+    gap:16px;
+}
+
+.collage-left img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:var(--radius-lg);
+}
+
+.collage-right img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:var(--radius-lg);
+}
+.about-text .eyebrow{display:block;margin-bottom:10px;}
+.about-text h2{margin-bottom:20px;}
+.about-text p{color:var(--muted);margin-bottom:24px;}
+
+/* ===================== Stats ===================== */
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:40px;
+    text-align:center;
+    align-items:start;
+}
+
+.stat{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.stat-icon{
+    width:70px;
+    height:70px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:15px;
+}
+
+.stat-icon img{
+    width:60px;
+    height:60px;
+    object-fit:contain;
+}
+
+.stat-num{
+    font-family:var(--font-display);
+    font-size:34px;
+    color:var(--red);
+    margin-bottom:5px;
+    line-height:1;
+}
+
+.stat-label{
+    font-size:16px;
+    font-weight:500;
+    color:var(--red);
+}
+@media (max-width:768px){
+.stats{grid-template-columns:repeat(4,1fr);gap:12px;}
+.stat-icon img{ width:32px;height:32px;}
+.stat-num{font-size:20px;}
+.stat-label{font-size:11px;line-height:1.3;}
+}
+
+/* ===================== Feature ===================== */
+
+.feature-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.feature-card{
+    background:var(--green-300);
+    border-radius:var(--radius-lg);
+    padding:28px 24px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+}
+
+.feature-icon{
+    width:60px;
+    height:60px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:18px;
+}
+
+.feature-icon img{
+    width:50px;
+    height:50px;
+    object-fit:contain;
+}
+
+.feature-card h3{
+    font-size:19px;
+    font-family:var(--font-body);
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.feature-card p{
+    font-size:14px;
+    color:#2c3b2f;
+    line-height:1.6;
+}
+
+/* ===================== Mobile ===================== */
+
+@media (max-width:768px){
+
+    .feature-grid{
+        grid-template-columns:repeat(4,1fr);
+        gap:10px;
+    }
+
+    .feature-card{
+        padding:12px 8px;
+    }
+
+    .feature-icon img{
+        width:28px;
+        height:28px;
+    }
+
+    .feature-card h3{
+        font-size:11px;
+    }
+
+    .feature-card p{
+        font-size:9px;
+        line-height:1.3;
+    }
+
+}
+/* ===================== Service cards ===================== */
+.service-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+.service-card{
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  background:#fff;
+  box-shadow:var(--shadow-card);
+  transition:box-shadow .2s ease, transform .2s ease;
+  display:flex;flex-direction:column;
+}
+.service-card:hover{box-shadow:var(--shadow-hover);transform:translateY(-3px);}
+.service-card img{width:100%;aspect-ratio:4/3;object-fit:cover;}
+.service-card-body{padding:22px 22px 26px;}
+.service-card-body h3{font-family:var(--font-body);font-size:20px;font-weight:700;margin-bottom:8px;}
+.service-card-body p{color:var(--muted);font-size:14.5px;margin-bottom:14px;}
+.link-arrow{color:var(--green-600);font-weight:600;font-size:14.5px;}
+
+/* ===================== Steps ===================== */
+.steps{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:24px;
+  text-align:center;
+}
+.step-num{
+  width:76px;height:76px;border-radius:50%;
+  border:2px solid var(--green-300);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-display);font-size:26px;font-weight:700;color:var(--green-600);
+  margin:0 auto 18px;
+}
+.step h3{font-family:var(--font-body);font-size:17px;font-weight:700;margin-bottom:8px;}
+.step p{color:var(--muted);font-size:14.5px;}
+
+/* ===================== Gallery preview grid ===================== */
+.gallery-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr 1fr;
+    gap:18px;
+    align-items:stretch;
+}
+
+/* Foto besar */
+.gallery-grid .big{
+    width:100%;
+    height:520px;
+    object-fit:cover;
+    border-radius:28px;
+}
+
+/* Kolom isi 2 foto */
+.stack{
+    display:grid;
+    grid-template-rows:1fr 1fr;
+    gap:18px;
+}
+
+.stack img{
+    width:100%;
+    height:251px;
+    object-fit:cover;
+    border-radius:28px;
+}
+/* ===================== Testimonials ===================== */
+.testi-card{
+    background: var(--offwhite);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 26px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: 250px;   /* samakan semua tinggi card */
+}
+
+.testi-stars{
+  color:var(--gold);
+  margin-bottom:14px;
+  font-size:15px;
+}
+
+.testi-quote{
+    font-size:14.5px;
+    color:var(--muted);
+    line-height:1.7;
+
+    flex:1;
+    margin:18px 0 22px;
+}
+
+.testi-person{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-top:auto;
+}
+
+.testi-avatar{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  background:var(--green-300);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  color:var(--green-900);
+  flex-shrink:0;
+}
+
+.testi-name{
+  font-weight:600;
+  font-size:14.5px;
+}
+
+.testi-role{
+  font-size:13px;
+  color:var(--muted);
+}
+
+.dots{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  margin-top:24px;
+}
+
+.dots span{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:var(--border);
+}
+
+.dots span.active{
+  background:var(--green-600);
+}
+.testiSwiper{
+    padding-bottom:50px;
+}
+
+.swiper-slide{
+    height:auto;
+}
+
+.swiper-pagination-bullet-active{
+    background:var(--green-600);
+}
+.swiper-wrapper{
+    align-items:stretch;
+}
+
+.swiper-slide{
+    display:flex;
+    height:auto;
+}
+
+.swiper-slide .testi-card{
+    width:100%;
+}
+/* ===================== FAQ / map ===================== */
+.faq-map{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:56px;
+  align-items:start;
+}
+.faq-item{
+  border-bottom:1px solid var(--border);
+  padding:18px 0;
+}
+.faq-q{
+  display:flex;justify-content:space-between;align-items:center;
+  font-weight:600;cursor:pointer;font-size:16px;
+}
+.faq-q .chev{color:var(--green-600);transition:transform .2s ease;}
+.faq-item.open .chev{transform:rotate(180deg);}
+.faq-a{
+  max-height:0;overflow:hidden;color:var(--muted);font-size:14.5px;
+  transition:max-height .25s ease;
+}
+.faq-item.open .faq-a{max-height:200px;padding-top:12px;}
+.map-box{
+    width:100%;
+    height:260px;
+    border-radius:24px;
+    overflow:hidden;
+    margin-bottom:30px;
+    border:1px solid var(--border);
+}
+
+.map-box iframe{
+    width:100%;
+    height:100%;
+    border:0;
+    display:block;
+}
+.cta-inline h3{margin-bottom:10px;}
+.cta-inline p{color:var(--muted);margin-bottom:20px;}
+
+/* ===================== Footer ===================== */
+.site-footer{
+  background:var(--green-300);
+  padding:64px 0 0;
+  margin-top:var(--space-3xl);
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr 1.2fr;
+  gap:32px;
+  padding-bottom:40px;
+}
+.footer-logo img{height:auto;width:auto;margin-bottom:14px;}
+.footer-about p{font-size:14px;color:#2c3b2f;max-width:280px;}
+.footer-col h4{font-weight:700;margin-bottom:16px;font-size:15.5px;}
+.footer-col ul li{margin-bottom:10px;}
+.footer-col ul li a{font-size:14.5px;color:#25381f;}
+.footer-col ul li a:hover{text-decoration:underline;}
+.footer-contact li{display:flex;gap:10px;font-size:14.5px;color:#25381f;margin-bottom:14px;align-items:flex-start;}
+.footer-bottom{
+  border-top:1px solid rgba(0,0,0,.08);
+  text-align:center;
+  padding:20px 0;
+  font-size:13.5px;
+  color:#33482f;
+}
+
+/* ===================== CTA MENU ===================== */
+
+.menu-cta{
+    margin-top:48px;
+}
+
+.menu-cta-content{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:40px;
+
+    padding:34px 42px;
+
+    background:#F8F7F2;
+    border:1px solid var(--border);
+    border-radius:20px;
+}
+
+.menu-cta-text{
+    max-width:650px;
+}
+
+.menu-cta-text h3{
+    font-family:var(--font-body);
+    font-size:30px;
+    font-weight:700;
+    margin-bottom:12px;
+}
+
+.menu-cta-text p{
+    color:var(--muted);
+    line-height:1.8;
+    font-size:16px;
+}
+
+.menu-cta-btn{
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    padding:16px 28px;
+
+    white-space:nowrap;
+}
+
+.menu-cta-btn img{
+    width:22px;
+    height:22px;
+}
+
+/* ===================== Menu Catering page ===================== */
+.page-hero{text-align:center;padding:56px 0 30px;}
+.page-hero h1{margin-bottom:14px;}
+.page-hero p{color:var(--muted);font-size:18px;}
+
+.tab-bar{
+  display:flex;
+  gap:14px;
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  padding:14px;
+  justify-content:space-between;
+  margin-top:36px;
+}
+.tab-btn{
+  flex:1;
+  display:flex;flex-direction:column;align-items:center;gap:4px;
+  padding:8px 8px;
+  border:1.5px solid var(--border);
+  border-radius:var(--radius-md);
+  background:#fff;
+  font-size:14.5px;
+  font-weight:500;
+  color:var(--ink);
+  transition:all .15s ease;
+}
+.tab-btn .ic{font-size:24px;}
+.tab-btn.active{background:var(--green-300);border-color:var(--green-300);font-weight:600;}
+.tab-hint{text-align:center;color:var(--muted);font-size:14.5px;margin-top:18px;}
+.menu-panel{display:none;padding-top:48px;}
+.menu-panel.active{display:block;}
+.menu-panel-head{display:flex;align-items:center;gap:12px;margin-bottom:8px;}
+.menu-panel-head .ic{font-size:28px;}
+.menu-panel-head h2{font-size:30px;}
+.menu-panel-desc{color:var(--muted);margin:6px 0 32px 44px;}
+
+/* Prasmanan packages */
+.pkg-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+.pkg-card{
+    position:relative;
+    border:1.5px solid var(--gold);
+    border-radius:28px;
+    background:#fff;
+    padding:70px 22px 24px;
+    text-align:center;
+    overflow:visible;
+}
+.pkg-badge{
+    position:absolute;
+    top:-18px;
+    left:50%;
+    transform:translateX(-50%);
+
+    width:150px;
+    height:50px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#A9D68E;
+    border-radius:16px;
+
+    font-size:18px;
+    font-weight:500;
+    color:#1E2F21;
+}
+.pkg-ribbon{
+    position:absolute;
+    top:-2px;
+    left:-2px;
+
+    width:95px;
+    height:95px;
+
+    background:#C82424;
+
+    clip-path:polygon(0 0,100% 0,0 100%);
+
+    color:#fff;
+
+    display:flex;
+    align-items:flex-start;
+    justify-content:flex-start;
+
+    padding:10px;
+
+    font-size:14px;
+    font-weight:700;
+    line-height:1.1;
+}
+
+.pkg-title{color:#1E2F21;margin-top: 8px; font-size:20px;margin-bottom:2px;}
+.pkg-price{font-family:var(--font-body);font-weight:700;font-size:28px;margin-bottom:16px;}
+.pkg-price sup{font-size:14px;font-weight:500;margin-right:2px;}
+.pkg-price sub{font-size:14px;font-weight:400;color:var(--muted);}
+.pkg-card img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:var(--radius-md);margin-bottom:18px 0 24px;}
+.pkg-divider{text-align:center;color:var(--muted);font-size:18px;letter-spacing:.1em;margin-bottom:14px;}
+.pkg-card h4{text-align: left; font-size:14.5px;font-weight:700;margin-bottom:8px;}
+.pkg-card ul{list-style: none;padding: 0; margin:0 0 24px;}
+.pkg-card ul li{font-size:14px;color:var(--muted);padding:3px 0;padding-left:18px;position:relative;margin:10px auto; text-align: left;}
+.pkg-card ul li::before{content:"•";position:absolute;left:0;color:var(--green-600);}
+
+/* Aqiqah feature card */
+.feature-package{
+    display:grid;
+    grid-template-columns:500px 300px 280px;
+    gap:22px;
+    align-items:center;
+
+    padding:14px 18px;
+
+    border:1px solid var(--border);
+    border-radius:18px;
+
+    background:#fff;
+}
+
+/* gambar */
+
+.feature-img img{
+    width:100%;
+    height:auto;
+    display:block;
+    border-radius:12px;
+}
+
+/* informasi */
+
+.feature-info h3{
+    font-family:var(--font-body);
+    font-size:24px;
+    line-height:1.35;
+    font-weight:500;
+    margin-bottom:14px;
+}
+
+.price-label{
+    font-size:14px;
+    color:#666;
+    margin-bottom:4px;
+}
+
+.price{
+    font-size:20px;
+}
+
+.price sup{
+    font-size:18px;
+    font-weight:500;
+}
+
+.price strong{
+    font-size:42px;
+}
+
+.feature-info .price{
+    font-size:18px;
+    font-weight:700;
+}
+
+/* checklist */
+
+.feature-benefit{
+    display:flex;
+    align-items:center;
+}
+
+.check-list{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.check-list li{
+    display:flex;
+    align-items:flex-start;
+    gap:8px;
+    font-size:15px;
+    padding:8px 0;
+}
+
+.chk{
+    color:var(--green-600);
+    font-weight:700;
+    font-size:15px;
+}
+/* Tasyakuran */
+.tasy-card{
+  display:grid;grid-template-columns:1fr 1.3fr;gap:36px;
+  border:1px solid var(--border);border-radius:var(--radius-lg);
+  padding:28px;align-items:center;margin-bottom:24px;
+}
+.tasy-card img{width:100%;object-fit:contain;border-radius:var(--radius-md);}
+.tasy-card h3{font-family:var(--font-display);font-size:26px;margin-bottom:14px;}
+.tasy-list{margin-bottom:16px;}
+.tasy-list li{display:flex;gap:8px;font-size:14.5px;padding:4px 0;}
+.tasy-list li .chk{color:var(--green-600);}
+.tasy-price{font-size:26px;font-weight:700;text-align:right;}
+.tasy-price sup{font-size:14px;font-weight:500;}
+
+/* (Gubukan) */
+.subheading{font-size:24px;font-weight:700;font-family:var(--font-body);margin:36px 0 20px;}
+.food-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
+}
+.food-grid.cols-4{display: grid; grid-template-columns:repeat(4,1fr);gap: 16px;}
+.food-card{
+  display:flex;align-items:center;gap:14px;
+  border:1px solid var(--border);border-radius:var(--radius-md);
+  padding:14px;background:#fff;
+}
+.food-card .thumb{
+  width:64px;height:64px;border-radius:var(--radius-sm);
+  object-fit:contain;flex-shrink:0;background:var(--cream);
+}
+.food-card .info{flex:1;}
+.food-card .info .name{font-weight:600;font-size:15px;}
+.food-card .info .price{font-size:14.5px;color:var(--ink);margin-top:2px;font-weight:600;}
+.food-card.vertical{display: flex; flex-direction:column;padding: 12px;border: 1px solid var(--border); align-items:flex-start;text-align:left;}
+.food-card.vertical .thumb{width:100%;height:130px;object-fit: cover;object-position: center; border-radius:var(--radius-sm);}
+.food-card.vertical .info{width:100%;}
+
+/* ===================== Nasi Box ===================== */
+
+.nb-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+}
+
+.nb-card{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:16px;
+    overflow:hidden;
+
+    display:flex;
+    flex-direction:column;
+    height:100%;
+
+    box-shadow:0 4px 14px rgba(0,0,0,.06);
+    transition:.25s ease;
+}
+
+.nb-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 12px 28px rgba(0,0,0,.12);
+}
+
+.nb-card .thumb{
+    width:100%;
+    aspect-ratio:4/3;
+    object-fit:cover;
+    display:block;
+}
+
+.nb-card-body{
+    padding:18px;
+    display:flex;
+    flex-direction:column;
+    flex:1;
+}
+
+.nb-card-body h4{
+    font-size:20px;
+    font-weight:700;
+    color:var(--ink);
+    line-height:1.3;
+    margin:0 0 6px;
+
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+}
+
+.nb-card-body .price{
+    font-size:22px;
+    font-weight:700;
+    color:var(--green-700);
+    margin-bottom:12px;
+}
+
+.nb-card-body .desc{
+    font-size:14px;
+    color:var(--muted);
+    line-height:1.6;
+
+    min-height:68px;
+    margin-bottom:18px;
+
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+}
+
+.nb-card .btn{
+    width:100%;
+    margin-top:auto;
+    border-radius:10px;
+    font-weight:600;
+    padding:12px;
+}
+
+.nb-card .btn:hover{
+    transform:none;
+}
+/* ===================== Responsive ===================== */
+
+@media (max-width:992px){
+
+    .nb-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media (max-width:640px){
+
+    .nb-grid{
+        grid-template-columns:1fr;
+        gap:18px;
+    }
+
+    .nb-card-body{
+        padding:16px;
+    }
+
+    .nb-card-body h4{
+        font-size:18px;
+    }
+
+    .nb-card-body .price{
+        font-size:20px;
+    }
+
+}
+/* =========================
+   SNACK
+========================= */
+
+.snack-feature{
+    display:grid;
+    grid-template-columns:420px 1fr;
+    gap:40px;
+    border:1px solid var(--border);
+    border-radius:var(--radius-lg);
+    padding:30px;
+    align-items:start;
+    margin-bottom:48px;
+    background:#fff;
+}
+
+.snack-feature img.main{
+    width:100%;
+    border-radius:16px;
+    object-fit:cover;
+    display:block;
+}
+
+.snack-feature h3{
+    font-family:var(--font-display);
+    font-size:30px;
+    margin-bottom:12px;
+}
+
+/* =========================
+   ISIAN TAMBIR
+========================= */
+
+.isian-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:16px;
+    margin-top:18px;
+}
+
+.isian-item{
+    text-align:center;
+}
+
+.isian-item img{
+    width:70px;
+    height:70px;
+    border-radius:12px;
+    object-fit:cover;
+    display:block;
+    margin:0 auto 8px;
+    border:1px solid var(--border);
+}
+
+.isian-item span{
+    font-size:13px;
+    font-weight:600;
+    line-height:1.4;
+    display:block;
+}
+
+/* =========================
+   SNACK BOX
+========================= */
+
+.snackbox-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+    margin-bottom:48px;
+}
+
+.snackbox-card{
+    border:1px solid var(--border);
+    border-radius:18px;
+    overflow:hidden;
+    background:#fff;
+    box-shadow:var(--shadow-card);
+    transition:.25s;
+}
+
+.snackbox-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+}
+
+.snackbox-card .thumb{
+    width:100%;
+    aspect-ratio:4/3;
+    object-fit:cover;
+    display:block;
+}
+
+.snackbox-card-body{
+    padding:20px;
+}
+
+.snackbox-card-body h4{
+    font-size:22px;
+    margin-bottom:8px;
+}
+
+.snackbox-card-body .price{
+    font-size:22px;
+    font-weight:700;
+    margin-bottom:12px;
+}
+
+.snackbox-card-body p{
+    font-size:14px;
+    color:var(--muted);
+    line-height:1.7;
+    margin-bottom:18px;
+}
+
+/* =========================
+   DETAIL PAKET
+========================= */
+
+.snack-detail{
+    max-height:0;
+    overflow:hidden;
+    opacity:0;
+    transition:max-height .45s ease,
+               opacity .35s ease,
+               margin .35s ease;
+    margin-top:0;
+}
+
+.snack-detail.open{
+    max-height:1000px;
+    opacity:1;
+    margin-top:8px;
+}
+
+.detail-toggle{
+    border:none;
+}
+
+.combo-title{
+    text-align:center;
+    color:var(--muted);
+    font-size:15px;
+    margin:36px 0 22px;
+    position:relative;
+}
+
+.combo-title::before,
+.combo-title::after{
+    content:"";
+    display:inline-block;
+    width:120px;
+    height:1px;
+    background:var(--border);
+    vertical-align:middle;
+    margin:0 16px;
+}
+
+.combo-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:16px;
+}
+
+.combo-card{
+    background:var(--offwhite);
+    border:1px solid var(--border);
+    border-radius:var(--radius-md);
+    padding:16px;
+}
+
+.combo-card li{
+    font-size:13.5px;
+    padding:4px 0;
+    color:var(--ink);
+}
+
+/* =========================
+   NOTE
+========================= */
+
+.note-box{
+    display:flex;
+    align-items:flex-start;
+    gap:16px;
+    background:var(--offwhite);
+    border:1px solid var(--border);
+    border-radius:var(--radius-md);
+    padding:18px 20px;
+    margin-top:36px;
+}
+
+.note-icon{
+    width:42px;
+    height:42px;
+    background:var(--red);
+    color:#fff;
+    border-radius:8px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+}
+
+.note-box h5{
+    margin:0 0 6px;
+    font-weight:700;
+}
+
+.note-box p{
+    margin:0;
+    color:var(--muted);
+    font-size:14px;
+}
+/* ===================== Gallery page ===================== */
+.gal-hero{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:20px 0 40px;}
+.gal-hero h2{font-size:44px;margin:8px 0 16px;}
+.gal-hero p{color:var(--muted);max-width:440px;}
+
+.chip-row{display:flex;gap:12px;flex-wrap:wrap;margin:20px 0 36px;}
+.chip{
+  padding:10px 22px;border-radius:var(--radius-full);
+  border:1.5px solid var(--border);font-size:14.5px;font-weight:500;background:#fff;
+}
+.chip.active{background:var(--green-300);border-color:var(--green-300);font-weight:600;color:var(--green-900);}
+
+.masonry{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+}
+.gal-item{position:relative;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-card);}
+.gal-item img{width:100%;height:280px;object-fit:cover;}
+.gal-tag{
+  position:absolute;left:14px;bottom:14px;background:var(--green-300);
+  color:var(--green-900);font-size:12.5px;font-weight:600;padding:6px 14px;border-radius:var(--radius-full);
+}
+
+.cta-banner{text-align:center;padding:var(--space-3xl) 0;}
+.cta-banner h2{margin-bottom:14px;}
+.cta-banner p{color:var(--muted);margin-bottom:28px;}
+.cta-banner .btn-row{display:flex;gap:16px;justify-content:center;}
+
+/* ===========================
+   TENTANG KAMI
+=========================== */
+
+.about-copy{
+    max-width:900px;
+    margin:0 auto;
+}
+
+.about-copy p{
+    color:var(--muted);
+    line-height:1.9;
+    font-size:16px;
+    margin-bottom:18px;
+}
+
+/* ===========================
+   VISI MISI
+=========================== */
+
+.visi-misi{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:28px;
+    margin:60px 0;
+}
+
+.vm-card{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:36px;
+    box-shadow:0 8px 28px rgba(0,0,0,.05);
+    transition:.35s;
+}
+
+.vm-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 18px 40px rgba(0,0,0,.08);
+}
+
+.vm-card h3{
+    font-size:24px;
+    margin-bottom:18px;
+    text-align:center;
+    color:var(--green-700);
+}
+
+.vm-card p{
+    text-align:center;
+    color:var(--muted);
+    line-height:1.8;
+}
+
+.vm-card ul{
+    margin-top:18px;
+}
+
+.vm-card ul li{
+    color:var(--muted);
+    line-height:1.8;
+    margin-bottom:8px;
+}
+
+/* ===========================
+   CTA
+=========================== */
+
+.team-cta{
+    display:grid;
+    grid-template-columns:1.05fr 1fr;
+    gap:60px;
+    align-items:center;
+    margin-top:90px;
+}
+
+/* FOTO */
+
+.team-photo{
+    position:relative;
+    overflow:hidden;
+    border-radius:22px;
+    box-shadow:0 18px 45px rgba(0,0,0,.12);
+    cursor:pointer;
+}
+
+.team-photo > img{
+    width:100%;
+    display:block;
+    object-fit:cover;
+    transition:transform .5s ease;
+}
+
+/* Overlay */
+
+.team-overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(62,129,81,.82);
+    opacity:0;
+    transition:.35s ease;
+}
+
+.team-photo:hover .team-overlay{
+    opacity:1;
+}
+
+.team-photo:hover > img{
+    transform:scale(1.08);
+}
+
+/* Isi Overlay */
+
+.team-overlay-content{
+    position:absolute;
+    inset:0;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+    padding:60px;
+    color:#fff;
+}
+
+.team-overlay-content h3{
+    font-family:var(--font-display);
+    font-size:30px;
+    line-height:1.4;
+    color:#fff;
+    margin:0 0 24px;
+}
+
+.team-overlay-content span{
+    font-size:18px;
+    color:#fff;
+    font-weight:500;
+}
+
+/* Petik */
+
+.petik{
+    position:absolute;
+    width:42px;
+    height:auto;
+    z-index:5;
+}
+
+.petik1{
+    position:static;
+    display:inline-block;
+    margin-right:8px;
+    vertical-align:middle;
+}
+
+.petik2{
+    position:static;
+    display: inline-block;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+/* Text */
+
+.team-content h3{
+    font-size:38px;
+    line-height:1.3;
+    margin-bottom:18px;
+}
+
+.team-content p{
+    color:var(--muted);
+    line-height:1.9;
+    margin-bottom:30px;
+}
+
+.team-content .btn{
+    padding:14px 28px;
+}
+/* ===================== Utility ===================== */
+.text-center{text-align:center;}
+.mt-lg{margin-top:var(--space-lg);}
+.mb-lg{margin-bottom:var(--space-lg);}
+
+/* ===================== Hero Circular Menu Carousel ===================== */
+.hcc{
+  position:relative;
+  width:100%;
+  max-width:580px;
+  aspect-ratio:1/1;
+  margin:0 auto;
+  overflow:visible;
+}
+.hcc-bg{
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+
+    width: 82%;
+    height: 100%;
+
+    background: radial-gradient(
+        circle at 50% 65%,
+        #c8efb4 0%,
+        #b5e6a1 45%,
+        #9fd38a 100%
+    );
+
+    border-radius: 0 0 240px 240px;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.hcc-ring{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  z-index:1;
+  pointer-events:none;
+}
+.hcc-slot{
+  position:absolute;
+  transform:translate(-50%,-50%);
+  border:3px solid var(--white);
+  padding:0;
+  background:var(--white);
+  cursor:pointer;
+  border-radius:50%;
+  overflow:hidden;
+  box-shadow:var(--shadow-card);
+  transition:width .5s cubic-bezier(.4,0,.2,1), box-shadow .3s ease, outline .3s ease;
+  z-index:2;
+  aspect-ratio:1/1;
+}
+.hcc-slot img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  border-radius:50%;
+  transition:opacity .35s ease;
+}
+.hcc-slot-0{left:16.7%;top:58.9%;width:11%;}
+.hcc-slot-1{left:28.6%;top:39.6%;width:13%;}
+.hcc-slot-2{left:50%;top:32%;width:16%;}
+.hcc-slot-3{left:71.4%;top:39.6%;width:13%;}
+.hcc-slot-4{left:83.3%;top:58.9%;width:11%;}
+.hcc-slot.active{
+  width:18% !important;
+  box-shadow:var(--shadow-hover);
+  outline:3px solid var(--green-600);
+  outline-offset:2px;
+}
+.hcc-plate{
+  position:absolute;
+  left:50%;
+  top:67.9%;
+  transform:translate(-50%,-50%);
+  width:42.9%;
+  aspect-ratio:1/1;
+  border-radius:50%;
+  background:var(--white);
+  box-shadow:var(--shadow-hover);
+  z-index:3;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  border:6px solid var(--white);
+}
+.hcc-plate img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:50%;
+  transition:opacity .4s ease;
+}
+.hcc-arrow{
+  position:absolute;
+  top:67.9%;
+  transform:translateY(-50%);
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  border:none;
+  background:var(--white);
+  box-shadow:var(--shadow-card);
+  font-size:22px;
+  line-height:1;
+  color:var(--green-900);
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:4;
+  transition:background .2s ease, transform .2s ease;
+}
+
+.hcc-arrow-left{left:11%;}
+.hcc-arrow-right{right:11%;}
+.hcc-dots{
+  position:absolute;
+  bottom:1%;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:6px;
+  z-index:4;
+}
+.hcc-dots span{
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:var(--white);
+  opacity:.7;
+  cursor:pointer;
+  transition:background .2s ease, width .2s ease, opacity .2s ease;
+}
+.hcc-dots span.active{
+  background:var(--green-900);
+  opacity:1;
+  width:18px;
+  border-radius:4px;
+}
+
+/* Bentuk background hijau: dome di atas + sudut membulat di bawah */
+.hcc-bg-top{
+  bottom:0;
+  border-radius:0 0 14% 14%;
+}
+
+@media (max-width:900px){
+  .hcc-slot-0,.hcc-slot-4{display:none;}
+}
+@media (max-width:640px){
+  .hcc{max-width:340px;}
+  .hcc-slot-1,.hcc-slot-3{display:none;}
+  .hcc-arrow{width:36px;height:36px;font-size:18px;}
+}
+@media (max-width:480px){
+  .hcc{max-width:280px;}
+  .hcc-arrow{width:32px;height:32px;font-size:16px;}
+  .hcc-arrow-left{left:6%;}
+  .hcc-arrow-right{right:6%;}
+  .hcc-dots span{width:5px;height:5px;}
+}
+
+/* ===================== Responsive ===================== */
+@media (max-width:1024px){
+  h1{font-size:44px;}
+  h2{font-size:32px;}
+  .about-split,.faq-map,.gal-hero,.team-cta{grid-template-columns:1fr;}
+  .stats,.feature-grid,.service-grid,.steps,.gallery-grid-4,.testi-grid,.masonry,.combo-grid,.food-grid,.food-grid.cols-4,.pkg-grid,.nb-grid,.snackbox-grid{grid-template-columns:repeat(2,1fr);}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  .footer-about{grid-column:1 / -1;}
+  .footer-kontak-col{grid-column:1 / -1;}
+  .isian-grid{grid-template-columns:repeat(5,1fr);}
+  .hero h1{font-size:44px;}
+  .hero-grid{grid-template-columns:1fr 1fr;}
+  .hero-visual{margin-top:20px;}
+}
+@media (max-width:768px){
+  .container{padding:0 20px;}
+  .navbar{padding:18px 20px;flex-wrap:wrap;}
+  .nav-links{display:none;}
+  .nav-toggle{display:block;}
+  .tab-bar{flex-wrap:wrap;}
+  .tab-btn{min-width:30%;}
+  .isian-grid{grid-template-columns:repeat(3,1fr);}
+
+  .hero-grid{
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    text-align:left;
+    margin-top:0;
+    padding:16px 16px 0;
+    gap:12px;
+  }
+  .hero-grid > div:first-child{
+    display:block;
+    flex-direction:column;
+    align-items:flex-start;
+    transform:none;
+  }
+  .hero h1{font-size:26px;line-height:1.15;margin-bottom:8px;}
+  .hero-sub{
+    font-size:13px;
+    margin-left:0;
+    margin-right:0;
+    margin-bottom:16px;
+    max-width:none;
+  }
+  .hero-grid .btn-primary{
+    padding:10px 16px;
+    font-size:13px;
+  }
+  .hero-visual{margin-top:0;transform:none;}
+}
+@media (max-width:480px){
+  .hero h1{font-size:20px;}
+  .hero-sub{font-size:12px;margin-bottom:12px;}
+  .hero-grid .btn-primary{padding:8px 14px;font-size:12px;}
+}
+@media (max-width:360px){
+  .hero h1{font-size:17px;}
+}
+@media (max-width:768px){
+
+    .menu-cta-content{
+        flex-direction:column;
+        align-items:flex-start;
+        padding:28px;
+    }
+
+    .menu-cta-btn{
+        width:100%;
+        justify-content:center;
+    }
+
+}
+
+/* =========================================================
+   PATCH — Perapian Responsive Mobile + Hover Kartu
+   (Tidak mengubah layout desktop yang sudah ada,
+   hanya menambahkan penyesuaian untuk layar kecil/HP
+   dan efek hover pada kartu-kartu yang belum memilikinya)
+========================================================= */
+
+/* Cegah scroll horizontal akibat elemen yang melebar */
+html, body{overflow-x:hidden; width:100%;}
+
+/* ===================== Hover: Feature cards (beranda) ===================== */
+.feature-card{
+  transition:transform .25s ease, box-shadow .25s ease, background-color .25s ease;
+}
+.feature-card:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow-hover);
+  background:var(--green-300-soft);
+}
+
+/* ===================== Hover: Paket / Package cards ===================== */
+.pkg-card{transition:transform .3s ease, box-shadow .3s ease;}
+.pkg-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 16px 34px rgba(0,0,0,.10);
+}
+
+/* ===================== Hover: Food cards (gubukan, dsb) ===================== */
+.food-card{transition:transform .25s ease, box-shadow .25s ease;}
+.food-card:hover{
+  transform:translateY(-3px);
+  box-shadow:var(--shadow-hover);
+}
+
+/* ===================== Hover: Combo & Isian cards ===================== */
+.combo-card{transition:transform .25s ease, box-shadow .25s ease;}
+.combo-card:hover{
+  transform:translateY(-3px);
+  box-shadow:var(--shadow-hover);
+}
+.isian-item{transition:transform .2s ease;}
+.isian-item img{transition:box-shadow .2s ease, transform .2s ease;}
+.isian-item:hover img{
+  transform:translateY(-3px);
+  box-shadow:var(--shadow-hover);
+}
+
+/* ===================== Hover: Testimoni ===================== */
+.testi-card{transition:transform .25s ease, box-shadow .25s ease;}
+.testi-card:hover{
+  transform:translateY(-3px);
+  box-shadow:var(--shadow-hover);
+}
+
+/* ===================== Hover: Galeri item ===================== */
+.gal-item img{transition:transform .4s ease;}
+.gal-item:hover img{transform:scale(1.06);}
+.gal-item:hover{box-shadow:var(--shadow-hover);}
+
+/* ===================== Hover: Tasyakuran card ===================== */
+.tasy-card{transition:transform .25s ease, box-shadow .25s ease;}
+.tasy-card:hover{
+  transform:translateY(-3px);
+  box-shadow:var(--shadow-hover);
+}
+
+/* ===================== Hover: Chip filter & Tab menu ===================== */
+.chip{transition:transform .2s ease, background-color .2s ease, border-color .2s ease;}
+.chip:hover{border-color:var(--green-600); color:var(--green-900);}
+.tab-btn:hover{border-color:var(--green-300); background:var(--offwhite);}
+
+/* ===================== RESPONSIVE — Tablet (<=1024px) ===================== */
+@media (max-width:1024px){
+  .gallery-grid{grid-template-columns:repeat(2,1fr); gap:16px;}
+  .gallery-grid .big{height:320px;}
+  .stack img{height:152px;}
+  .feature-package{grid-template-columns:1fr 1fr; gap:20px;}
+  .feature-benefit{grid-column:1 / -1;}
+  .snack-feature{grid-template-columns:1fr; gap:24px;}
+  .snack-feature img.main{max-width:420px; margin:0 auto;}
+  .isian-grid{grid-template-columns:repeat(4,1fr);}
+}
+
+/* ===================== RESPONSIVE — Mobile (<=768px) ===================== */
+@media (max-width:768px){
+  .container{overflow-x:hidden;}
+
+  /* Grid umum yang belum tertangani jadi 1 kolom rapi */
+  .gallery-grid{grid-template-columns:1fr; gap:14px;}
+  .gallery-grid .big{height:220px; border-radius:18px;}
+  .stack{grid-template-columns:1fr 1fr; grid-template-rows:none; gap:14px;}
+  .stack img{height:150px; border-radius:18px;}
+
+  .feature-package{
+    grid-template-columns:1fr;
+    padding:16px;
+    gap:16px;
+  }
+  .feature-info h3{font-size:20px;}
+  .feature-benefit{grid-column:auto;}
+
+  .snack-feature{padding:18px;}
+  .snack-feature h3{font-size:22px;}
+
+  .isian-grid{grid-template-columns:repeat(3,1fr); gap:12px;}
+  .isian-item img{width:56px; height:56px;}
+  .isian-item span{font-size:12px;}
+
+  .tasy-card{grid-template-columns:1fr; gap:16px; padding:18px;}
+  .tasy-card h3{font-size:21px;}
+  .tasy-price{text-align:left;}
+
+  .visi-misi{grid-template-columns:1fr; gap:16px;}
+  .vm-card{padding:24px;}
+
+  .team-content h3{font-size:26px;}
+  .team-overlay-content{padding:24px;}
+  .team-overlay-content h3{font-size:20px; margin-bottom:12px;}
+
+  .combo-grid{grid-template-columns:repeat(2,1fr);}
+  .masonry{gap:14px;}
+  .gal-item img{height:180px;}
+
+  .footer-logo img{margin:0 auto 14px;}
+
+  .site-footer{padding:44px 0 0; margin-top:var(--space-2xl);}
+  .team-cta{margin-top:56px;}
+  .visi-misi{margin:40px 0;}
+}
+
+/* ===================== RESPONSIVE — Extra small (<=480px) ===================== */
+@media (max-width:480px){
+  .gallery-grid .big{height:180px;}
+  .stack{grid-template-columns:1fr; gap:10px;}
+  .stack img{height:170px;}
+
+  .isian-grid{grid-template-columns:repeat(2,1fr);}
+  .combo-grid{grid-template-columns:1fr 1fr; gap:10px;}
+  .masonry{grid-template-columns:1fr;}
+  .gal-item img{height:220px;}
+
+  .footer-grid{gap:28px 20px; text-align:left;}
+  .team-content h3{font-size:22px;}
+  .price strong{font-size:32px;}
+  .tasy-price{font-size:21px;}
+  .pkg-price{font-size:23px;}
+  .menu-cta-text h3{font-size:22px;}
+}
+
+/* =========================================================
+   PATCH 2 — Revisi tambahan (mobile)
+========================================================= */
+
+/* 6) Tampilkan "Kontak" di dropdown menu mobile, sembunyikan di navbar desktop */
+.nav-kontak-mobile{display:none;}
+@media (max-width:992px){
+  .nav-kontak-mobile{display:block;}
+}
+
+/* 5) Samakan ukuran tombol "Lihat Menu" & "Konsultasi" di hero saat HP */
+@media (max-width:768px){
+  .hero-grid .btn{
+    padding:10px 16px;
+    font-size:13px;
+    margin:6px 10px 0 0;
+  }
+}
+@media (max-width:480px){
+  .hero-grid .btn{
+    padding:8px 14px;
+    font-size:12px;
+  }
+}
+
+/* 2) Paket Prasmanan/Aqiqah dkk: hindari kotak terpotong/overflow di HP */
+@media (max-width:680px){
+  .pkg-grid{grid-template-columns:1fr; gap:20px;}
+  .pkg-card{padding:60px 20px 22px;}
+}
+
+/* 1) Judul "Pilihan Kombinasi Snack — Paket X" tetap satu baris di HP */
+@media (max-width:600px){
+  .combo-title{
+    font-size:13px;
+    white-space:nowrap;
+    margin:26px 0 16px;
+  }
+  .combo-title::before,
+  .combo-title::after{
+    width:18px;
+    margin:0 8px;
+  }
+}
+@media (max-width:360px){
+  .combo-title{font-size:11.5px;}
+  .combo-title::before,
+  .combo-title::after{width:10px; margin:0 6px;}
+}
+
+/* 4) Galeri: tampilkan 2 kartu sejajar di HP (bukan 1 kolom penuh) */
+@media (max-width:768px){
+  .masonry{grid-template-columns:repeat(2,1fr); gap:12px;}
+  .gal-item img{height:150px;}
+}
+@media (max-width:480px){
+  .masonry{grid-template-columns:repeat(2,1fr); gap:10px;}
+  .gal-item img{height:120px;}
+  .gal-tag{font-size:10.5px; padding:4px 10px; left:8px; bottom:8px;}
+}
+
+/* 4) Galeri di landing page: 2 kartu sejajar juga */
+@media (max-width:768px){
+  .gallery-grid{grid-template-columns:repeat(2,1fr); gap:12px;}
+  .gallery-grid .big{height:150px;}
+  .stack{grid-template-columns:1fr; gap:12px;}
+  .stack img{height:150px;}
+}
+@media (max-width:480px){
+  .gallery-grid .big{height:120px;}
+  .stack img{height:120px;}
+}
+
+/* =========================================================
+   PATCH 3 — Revisi lanjutan
+========================================================= */
+
+/* 4) Hover interaktif untuk foto galeri di landing page (beranda) */
+.gal-frame{
+  overflow:hidden;
+  border-radius:28px;
+  display:block;
+  cursor:pointer;
+}
+.gal-frame img{
+  transition:transform .45s ease;
+}
+.gal-frame:hover img{
+  transform:scale(1.07);
+}
+
+/* 3) Kutipan Tim Gutera: tetap pakai efek hover pada foto (sesuai permintaan),
+      foto & kutipan TIDAK dipisah jadi 2 kartu. Kutipan muncul saat foto disentuh/hover,
+      baik di desktop maupun HP (tap pertama pada foto akan memicu hover di HP). */
+/* =========================================================
+   PATCH 4 — Revisi lanjutan (round 3)
+========================================================= */
+
+/* 1) Tombol "Hubungi Kami" di cta-banner: jangan terpotong di HP */
+@media (max-width:600px){
+  .cta-banner .btn-row{
+    flex-direction:column;
+    align-items:stretch;
+    gap:12px;
+  }
+  .cta-banner .btn-row .btn{
+    justify-content:center;
+    width:100%;
+    white-space:normal;
+    font-size:14px;
+    padding:12px 18px;
+  }
+}
+
+/* 2) Paket Prasmanan dkk: menu dipadatkan supaya tidak perlu scroll jauh di HP */
+@media (max-width:680px){
+  .pkg-card{padding:56px 18px 20px;}
+  .pkg-card img{aspect-ratio:16/9;margin-bottom:14px;}
+  .pkg-title{font-size:18px;margin-top:4px;}
+  .pkg-price{font-size:23px;margin-bottom:10px;}
+  .pkg-divider{font-size:15px;margin-bottom:8px;}
+  .pkg-card h4{font-size:13px;margin-bottom:5px;margin-top:12px;}
+  .pkg-card ul{margin:0 0 14px;}
+  .pkg-card ul li{font-size:12.5px;margin:5px auto;padding:2px 0 2px 15px;line-height:1.35;}
+  .pkg-grid{gap:16px;}
+}
+
+/* 4) Kartu keunggulan (100% Halal, Amanah, dst) dipadatkan di HP, tetap 2 kolom */
+@media (max-width:768px){
+  .feature-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+  }
+  .feature-card{
+    padding:18px 14px;
+  }
+  .feature-icon{width:44px;height:44px;}
+  .feature-icon img{width:30px;height:30px;}
+  .feature-card h3{font-size:14.5px;margin-bottom:6px;}
+  .feature-card p{font-size:12px;line-height:1.45;}
+}
+
+/* 4) Kartu "Pilihan Layanan Catering" juga dipadatkan di HP */
+@media (max-width:768px){
+  .service-card-body{padding:14px 14px 18px;}
+  .service-card-body h3{font-size:15px;margin-bottom:5px;}
+  .service-card-body p{font-size:12px;margin-bottom:8px;}
+  .link-arrow{font-size:12px;}
+}
+
+/* 5) "Dipercaya untuk Berbagai Acara" & Galeri preview: sembunyikan di HP, tampil di desktop saja */
+@media (max-width:768px){
+  #stats-section{display:none;}
+  #galeri{display:none;}
+}
+
+/* 6) Testimoni dipadatkan agar tidak terlalu besar di HP */
+@media (max-width:768px){
+  .testi-card{padding:18px;height:220px;}
+  .testi-stars{font-size:13px;margin-bottom:8px;}
+  .testi-quote{font-size:12.5px;margin:8px 0 12px;line-height:1.55;}
+  .testi-avatar{width:32px;height:32px;font-size:13px;}
+  .testi-name{font-size:13px;}
+  .testi-role{font-size:11px;}
+}
+
+/* 7) Footer dipadatkan lebih lanjut di HP */
+@media (max-width:768px){
+  .site-footer{padding:28px 0 0;}
+  .footer-grid{padding-bottom:20px;gap:22px;}
+  .footer-logo img{width:110px;}
+  .footer-about p{font-size:12px;max-width:100%;}
+  .footer-col h4{font-size:13.5px;margin-bottom:8px;}
+  .footer-col ul li{margin-bottom:5px;}
+  .footer-col ul li a{font-size:12px;}
+  .footer-contact li{font-size:12px;margin-bottom:6px;}
+  .footer-bottom{font-size:11px;padding:12px 0;}
+}
+
+/* 2) Menu Favorit — desain kartu baru: lebih menarik + ada label & harga */
+.fav-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:22px;
+}
+.fav-card{
+  display:block;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:20px;
+  overflow:hidden;
+  transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+.fav-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 18px 34px rgba(0,0,0,.12);
+  border-color:var(--green-300);
+}
+.fav-thumb{
+  position:relative;
+  overflow:hidden;
+  aspect-ratio:4/3;
+}
+.fav-thumb .thumb{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .5s ease;
+}
+.fav-card:hover .fav-thumb .thumb{
+  transform:scale(1.09);
+}
+.fav-badge{
+  position:absolute;
+  top:12px;
+  left:12px;
+  background:var(--green-600);
+  color:#fff;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.02em;
+  padding:5px 12px;
+  border-radius:999px;
+  box-shadow:0 6px 14px rgba(0,0,0,.18);
+}
+.fav-info{
+  padding:16px 18px 20px;
+  text-align:left;
+}
+.fav-name{
+  font-weight:700;
+  font-size:16px;
+  color:var(--ink);
+  margin-bottom:6px;
+}
+.fav-price{
+  font-size:13px;
+  color:var(--muted);
+}
+.fav-price strong{
+  font-size:15px;
+  font-weight:700;
+  color:var(--green-600);
+}
+.fav-price span{
+  font-size:12px;
+  color:var(--muted);
+}
+
+@media (max-width:1024px){
+  .fav-grid{grid-template-columns:repeat(3,1fr);}
+}
+@media (max-width:768px){
+  .fav-grid{grid-template-columns:repeat(2,1fr);gap:14px;}
+  .fav-info{padding:12px 14px 16px;}
+  .fav-name{font-size:14px;margin-bottom:4px;}
+  .fav-price{font-size:11.5px;}
+  .fav-price strong{font-size:13px;}
+  .fav-badge{font-size:10px;padding:4px 10px;top:8px;left:8px;}
+}
+@media (max-width:400px){
+  .fav-grid{grid-template-columns:1fr 1fr;gap:10px;}
+}
+
+/* =========================================================
+   PATCH 5 — Revisi lanjutan (round 4)
+========================================================= */
+
+/* 1) Footer di HP: "Navigasi" & "Layanan" disejajarkan kiri-kanan */
+@media (max-width:768px){
+  .footer-grid{
+    grid-template-columns:1fr 1fr;
+    gap:26px 18px;
+  }
+  .footer-logo.footer-about{grid-column:1 / -1;}
+  .footer-col.footer-nav{grid-column:1;grid-row:2;}
+  .footer-col.footer-layanan{grid-column:2;grid-row:2;}
+  .footer-col.footer-kontak-col{grid-column:1 / -1;grid-row:3;}
+}
+@media (max-width:400px){
+  .footer-grid{gap:20px 14px;}
+}
