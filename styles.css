@@ -1,3 +1,8 @@
+/* =========================================================
+   Dapoer Gutera — Stylesheet
+   Built from UI KIT | DAPOER GUTERA
+========================================================= */
+
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
 
 :root{
@@ -2168,4 +2173,49 @@ html, body{overflow-x:hidden; width:100%;}
   .about-split .collage-left img,
   .about-split .collage-right img{height:54px;}
 }
+
+/* =========================================================
+   PATCH 7 — Perbaikan overlap foto & grid stats di HP
+   (tentang.html & galeri.html)
+========================================================= */
+
+/* 1) Stats "500+ / 1000+ / 50+ / 10+" di tentang.html:
+      kembalikan ke 4 kolom sejajar (sempat ketimpa jadi 2 kolom) */
+@media (max-width:768px){
+  .stats{
+    grid-template-columns:repeat(4,1fr) !important;
+    gap:8px;
+  }
+  .stat-icon{width:40px;height:40px;margin-bottom:8px;}
+  .stat-icon img{width:26px;height:26px;}
+  .stat-num{font-size:16px;margin-bottom:2px;}
+  .stat-label{font-size:9.5px;line-height:1.25;}
+}
+@media (max-width:360px){
+  .stat-num{font-size:14px;}
+  .stat-label{font-size:8.5px;}
+}
+
+/* 2) Foto collage (tentang.html & galeri.html) memakai img height:100%
+      di dalam grid tanpa tinggi pasti -> di sebagian browser mobile
+      tingginya jadi tidak menentu sehingga menimpa elemen di bawahnya
+      (chip filter / stats). Beri tinggi pasti supaya konsisten. */
+@media (max-width:768px){
+  .gal-hero .collage{
+    height:230px;
+  }
+  .gal-hero .collage-left,
+  .gal-hero .collage-right{
+    height:100%;
+  }
+  .gal-hero .collage-left img,
+  .gal-hero .collage-right img{
+    height:100%;
+    width:100%;
+  }
+}
+@media (max-width:400px){
+  .gal-hero .collage{height:200px;}
+}
+
 
